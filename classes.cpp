@@ -73,7 +73,36 @@ class cball
 			return o;
 		}
 };
-
+class cpaddle
+{
+	private:
+		int x,y;
+		int originalx, originaly;
+	public:
+		cpaddle()
+		{
+			x = y = 0;
+		}
+		cpaddle(int posx,int posy) : cpaddle()
+		{
+			originalx = posx;
+			originaly = posy;
+			x= posx;
+			y = posy;
+			
+		}
+	inline void reset(){ x = originalx; y=originaly;}
+	inline int getx(){ return x;}
+	inline int gety(){return y;}
+	inline void moveup() {y--;}
+	inline void movedown(){ y++;}
+	friend ostream & operator<<(ostream & o, cpaddle c)
+	{
+		o<<"Paddle [" <<c.x<<","<<c.y<<"]";
+		return 0;	
+	}	
+		
+};
 int main()
 {
 	cball c(0,0);
